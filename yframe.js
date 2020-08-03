@@ -1,3 +1,9 @@
+/*  Magic Mirror 2
+ * Module: Yframe
+ * by Razvan Cristea 
+ * https://github.com/hangorazvan
+ */
+
 Module.register("yframe", {
 
   defaults: {
