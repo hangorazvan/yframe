@@ -4,7 +4,7 @@ HTML5 Video, Audio, Youtube, Vimeo, Soundcloud, Bandcamp, Audiomack & Web iframe
 
 	{
 		module: "yframe",
-		position: "lower_third",
+		position: "middle_center",
 		config: {
 			mode: "iframe",				// iframe, video or audio
 
