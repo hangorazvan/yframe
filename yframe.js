@@ -20,7 +20,7 @@ Module.register("yframe", {
 
               // Youtube
               yurl: "",
-              allow: "autoplay; encrypted-media; picture-in-picture",
+              yallow: "autoplay; encrypted-media; picture-in-picture",
               play: 1,
               mute: 1,
               controls: 0,
@@ -29,7 +29,7 @@ Module.register("yframe", {
 
               // Vimeo
               vurl: "",
-              allow: "autoplay; fullscreen",
+              vallow: "autoplay; fullscreen",
               portrait: 0,
               autoplay: 1,
               control: 0,
@@ -64,7 +64,7 @@ Module.register("yframe", {
         if (this.config.mode == "Web") { iframe.src = this.config.wurl                   // web iframe
 
         } else if (this.config.mode == "Youtube") {
-            iframe.allow = this.config.allow;
+            iframe.allow = this.config.yallow;
             iframe.src = this.config.yurl + "?autoplay=" + this.config.autoplay           // Youtube iframe
                                           + "&mute=" + this.config.mute
                                           + "&controls=" + this.config.controls
@@ -72,6 +72,7 @@ Module.register("yframe", {
                                           + "&rel=" + this.config.related;
 
         } else if (this.config.mode == "Vimeo") {
+            iframe.allow = this.config.vallow;
             iframe.src = this.config.vurl + "?portrait=" + this.config.portrait           // Vimeo iframe
                                           + "&autoplay=" + this.config.play
                                           + "&controls=" + this.config.control
