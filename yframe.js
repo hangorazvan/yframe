@@ -7,30 +7,30 @@
 Module.register("yframe", {
 
 	defaults: {
-		mode: "",		// iframe, video or audio
+		mode: "",					// iframe, video or audio
 
-		width: "1024px",	// for iframe just px not %
-		height: "576px",	// for iframe just px not %
-		cssClass: "video",	// custom className
-		loop: true,			// loop video
-		autoplay: true,		// autoplay video
-		contols: false,		// if autoplay and loop is false you need controls
-		muted: true,		// muted video
+		width: "1024px",			// for iframe just px not %
+		height: "576px",			// for iframe just px not %
+		cssClass: "video",			// custom className
+		loop: true,					// loop video
+		autoplay: true,				// autoplay video
+		contols: false,				// if autoplay and loop is false you need controls
+		muted: true,				// muted video
 
 		// HTML5 Video or Audio
-		url: "",			// path/folder/video.mp4 or audio.mp3
-		type: "video/mp4",	// video/mp4, video/webm, video/ogg or audio/mpeg, audio/ogg, audio/wav
-		poster: "",			// custom poster image
+		url: "",					// path/folder/video.mp4 or audio.mp3
+		type: "video/mp4",			// video/mp4, video/webm, video/ogg or audio/mpeg, audio/ogg, audio/wav
+		poster: "",					// custom poster image
 
 		// iframe
-		source: "",	// Web, Youtube, Vimeo, Soundcloud, Bandcap, Audiomack
+		source: "",					// Web, Youtube, Vimeo, Soundcloud, Bandcap, Audiomack
 
 		// Web
 		w_url: "",
 		scrolling: "no",
 		allowfullscreen: "yes",
 		allow: "autoplay; fullscreen; encrypted-media; picture-in-picture",
-		frameborder: "0",	// style width color
+		frameborder: "0",			// style width color
 		name: "iframe",
 
 		// Youtube
@@ -65,8 +65,8 @@ Module.register("yframe", {
 
 		// Audiomack
 		a_url: "",
-		background: 1,		// 1 = art background, 0 = no background
-		color: false,		// "RRGGBB" custom colors or false
+		background: 1,				// 1 = art background, 0 = no background
+		color: false,				// "RRGGBB" custom colors or false
 	},
 
 	start: function() {
@@ -95,21 +95,21 @@ Module.register("yframe", {
 		iframe.preload = "auto";
 
 		if (this.config.mode == "video" || this.config.mode == "audio") {
-			iframe.src = this.config.url					// HTML5 Video or Audio
+			iframe.src = this.config.url						// HTML5 Video or Audio
 
 		} else if (this.config.mode == "iframe") {
 
 			if (this.config.source == "Web") {
-			iframe.src = this.config.w_url					// Web iframe
+			iframe.src = this.config.w_url						// Web iframe
 
-			} else if (this.config.source == "Youtube") {	// Youtube iframe
+			} else if (this.config.source == "Youtube") {		// Youtube iframe
 				iframe.src = this.config.y_url	+ "?autoplay=" + this.config.autoplay
 												+ "&mute=" + this.config.muted
 												+ "&controls=" + this.config.controls
 												+ "&loop=" + this.config.loop
 												+ "&rel=" + this.config.related;
 
-			} else if (this.config.source == "Vimeo") {		// Vimeo iframe
+			} else if (this.config.source == "Vimeo") {			// Vimeo iframe
 				iframe.src = this.config.v_url	+ "?byline=" + this.config.author
 												+ "&autoplay=" + this.config.autoplay
 												+ "&controls=" + this.config.controls
