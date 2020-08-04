@@ -19,7 +19,7 @@ Youtube, Vimeo, Soundcloud & Web iframe module for MagicMirror2
 
               // Youtube
               yurl: "https://www.youtube.com/embed/eKFTSSKCzWA",
-              allow: "autoplay; encrypted-media; picture-in-picture",
+              yallow: "autoplay; encrypted-media; picture-in-picture",
               play: 1,
               mute: 1,
               controls: 0,
@@ -28,10 +28,13 @@ Youtube, Vimeo, Soundcloud & Web iframe module for MagicMirror2
 
               // Vimeo
               vurl: "https://player.vimeo.com/video/419924697",
-              allow: "autoplay; fullscreen",
-              portrait: 0,
+              vallow: "autoplay; fullscreen",
+              author: 0,
               autoplay: 1,
               control: 0,
+              muted: 1,
+              portrait: 0,
+              title: 0,
               loops: 1,
 
               // Soundcloud

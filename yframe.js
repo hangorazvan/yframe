@@ -12,7 +12,7 @@ Module.register("yframe", {
               wurl: "",
               width: "1024px",    // in px not %
               height: "576px",    // in px not %
-              cssClass: "",
+              cssClass: "video",
               scrolling: "no",
               allowfullscreen: "yes",
               frameborder: "0",   // style width color
@@ -30,9 +30,12 @@ Module.register("yframe", {
               // Vimeo
               vurl: "",
               vallow: "autoplay; fullscreen",
-              portrait: 0,
+              author: 0,
               autoplay: 1,
               control: 0,
+              muted: 1,
+              portrait: 0,
+              title: 0,
               loops: 1,
 
               // Soundcloud
@@ -73,9 +76,12 @@ Module.register("yframe", {
 
         } else if (this.config.mode == "Vimeo") {
           iframe.allow = this.config.vallow;
-            iframe.src = this.config.vurl + "?portrait=" + this.config.portrait           // Vimeo iframe
+            iframe.src = this.config.vurl + "?byline=" + this.config.author           // Vimeo iframe
                                           + "&autoplay=" + this.config.play
                                           + "&controls=" + this.config.control
+                                          + "&muted=" + this.config.muted
+                                          + "&portrait=" + this.config.portrait
+                                          + "&title=" + this.config.title
                                           + "&loop=" + this.config.loops;
 
         } else if (this.config.mode == "Soundcloud") {
