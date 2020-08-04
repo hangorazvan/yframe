@@ -6,98 +6,145 @@
 
 Module.register("yframe", {
 
-    defaults: {
-              mode: "", // Web, Youtube, Vimeo or Soundcloud
+	defaults: {
+		mode: "",		// iframe, video or audio
 
-              w_url: "",
-              width: "1024px",    // in px not %
-              height: "576px",    // in px not %
-              cssClass: "video",
-              scrolling: "no",
-              allowfullscreen: "yes",
-              frameborder: "0",   // style width color
-              name: "iframe",
+		width: "1024px",	// for iframe just px not %
+		height: "576px",	// for iframe just px not %
+		cssClass: "video",	// custom className
+		loop: true,			// loop video
+		autoplay: true,		// autoplay video
+		contols: false,		// if autoplay and loop is false you need controls
+		muted: true,		// muted video
 
-              // Youtube
-              y_url: "",
-              y_allow: "autoplay; encrypted-media; picture-in-picture",
-              y_autoplay: 1,
-              mute: 1,
-              y_controls: 0,
-              y_loop: 1,
-              related: 0,
+		// HTML5 Video or Audio
+		url: "",			// path/folder/video.mp4 or audio.mp3
+		type: "video/mp4",	// video/mp4, video/webm, video/ogg or audio/mpeg, audio/ogg, audio/wav
+		poster: "",			// custom poster image
 
-              // Vimeo
-              v_url: "",
-              v_allow: "autoplay; fullscreen",
-              author: 0,
-              v_autoplay: 1,
-              v_controls: 0,
-              muted: 1,
-              portrait: 0,
-              title: 0,
-              v_loop: 1,
+		// iframe
+		source: "",	// Web, Youtube, Vimeo, Soundcloud, Bandcap, Audiomack
 
-              // Soundcloud
-              s_url: "",
-              color: "%23ff5500",
-              s_allow: "autoplay",
-              s_autoplay: true,
-              hide_related: true,
-              show_comments: false,
-              show_user: true,
-              show_reposts: false,
-              show_teaser: false,
-              visual: false
-    },
+		// Web
+		w_url: "",
+		scrolling: "no",
+		allowfullscreen: "yes",
+		allow: "autoplay; fullscreen; encrypted-media; picture-in-picture",
+		frameborder: "0",	// style width color
+		name: "iframe",
 
-    start: function() {
-        Log.info("Starting module: " + this.name);
-    },
-  
-    getDom: function() {
-        var iframe = document.createElement("iframe");
-        iframe.frameborder = 0;
-        iframe.style.border = this.config.frameborder;  // style width color
-        iframe.name = this.config.name;
-        iframe.className = this.config.cssClass;
-        iframe.style.width = this.config.width;         // in px not %
-        iframe.style.height = this.config.height;       // in px not %
-        iframe.scrolling = this.config.scrolling;
-        iframe.allowfullscreen = this.config.allowfullscreen;
+		// Youtube
+		y_url: "",
+		related: 0,
 
-        if (this.config.mode == "Web") { iframe.src = this.config.w_url                   // web iframe
+		// Vimeo
+		v_url: "",
+		author: 0,
+		portrait: 0,
+		title: 0,
 
-        } else if (this.config.mode == "Youtube") {
-            iframe.allow = this.config.y_allow;
-            iframe.src = this.config.y_url  + "?autoplay=" + this.config.y_autoplay           // Youtube iframe
-                                          + "&mute=" + this.config.mute
-                                          + "&controls=" + this.config.y_controls
-                                          + "&loop=" + this.config.y_loop
-                                          + "&rel=" + this.config.related;
+		// Soundcloud
+		s_url: "",
+		color: "%23ff5500",
+		hide_related: true,
+		show_comments: false,
+		show_user: true,
+		show_reposts: false,
+		show_teaser: false,
+		visual: false,
 
-        } else if (this.config.mode == "Vimeo") {
-          iframe.allow = this.config.v_allow;
-            iframe.src = this.config.v_url  + "?byline=" + this.config.author           // Vimeo iframe
-                                          + "&autoplay=" + this.config.v_autoplay
-                                          + "&controls=" + this.config.v_controls
-                                          + "&muted=" + this.config.muted
-                                          + "&portrait=" + this.config.portrait
-                                          + "&title=" + this.config.title
-                                          + "&loop=" + this.config.v_loop;
+		// Bandcamp
+		b_url: "",
+		size: "large",				// "large" only if minimal is false
+		background_color: "ffffff", // "RRGGBB" custom colors
+		link_color: "333333",		// "RRGGBB" custom colors
+		tracklist: true,
+		artwork: "small", 			// small or big
+		transparent: true,
+		minimal: false,				// true only if size is false
 
-        } else if (this.config.mode == "Soundcloud") {
-          iframe.allow = this.config.s_allow;
-            iframe.src = this.config.s_url  + "&color=" + this.config.color                 // Soundcloud iframe
-                                          + "&auto_play=" + this.config.s_autoplay
-                                          + "&hide_related=" + this.config.hide_related
-                                          + "&show_comments=" + this.config.show_coments
-                                          + "&show_user=" + this.config.show_user
-                                          + "&show_reposts=" + this.config.show_reposts
-                                          + "&show_teaser=" + this.config.show_teaser
-                                          + "&visual=" + this.config.visual;
-        }
+		// Audiomack
+		a_url: "",
+		background: 1,		// 1 = art background, 0 = no background
+		color: false,		// "RRGGBB" custom colors or false
+	},
 
-        return iframe;
-    }
+	start: function() {
+		Log.info("Starting module: " + this.name);
+	},
+
+	getDom: function() {
+		var iframe =  document.createElement(this.config.mode);
+		iframe.src = this.config.url;
+		iframe.frameborder = 0;
+		iframe.style.border = this.config.frameborder;
+		iframe.allow = this.config.allow;
+		iframe.name = this.config.name;
+		iframe.className = this.config.cssClass;
+		iframe.style.width = this.config.width;
+		iframe.style.height = this.config.height;
+		iframe.scrolling = this.config.scrolling;
+		iframe.scrollbars = this.config.scrolling;
+		iframe.allowfullscreen = this.config.allowfullscreen;
+		iframe.type = this.config.type;
+		iframe.autoplay = this.config.autoplay;
+		iframe.controls = this.config.controls;
+		iframe.muted = this.config.muted;
+		iframe.loop = this.config.loop;
+		iframe.poster = this.config.poster;
+		iframe.preload = "auto";
+
+		if (this.config.mode == "video" || this.config.mode == "audio") {
+			iframe.src = this.config.url					// HTML5 Video or Audio
+
+		} else if (this.config.mode == "iframe") {
+
+			if (this.config.source == "Web") {
+			iframe.src = this.config.w_url					// Web iframe
+
+			} else if (this.config.source == "Youtube") {	// Youtube iframe
+				iframe.src = this.config.y_url	+ "?autoplay=" + this.config.autoplay
+												+ "&mute=" + this.config.muted
+												+ "&controls=" + this.config.controls
+												+ "&loop=" + this.config.loop
+												+ "&rel=" + this.config.related;
+
+			} else if (this.config.source == "Vimeo") {		// Vimeo iframe
+				iframe.src = this.config.v_url	+ "?byline=" + this.config.author
+												+ "&autoplay=" + this.config.autoplay
+												+ "&controls=" + this.config.controls
+												+ "&muted=" + this.config.muted
+												+ "&portrait=" + this.config.portrait
+												+ "&title=" + this.config.title
+												+ "&loop=" + this.config.loop;
+
+			} else if (this.config.source == "Soundcloud") {	// Soundcloud iframe
+				iframe.src = this.config.s_url	+ "&color=" + this.config.color
+												+ "&auto_play=" + this.config.autoplay
+												+ "&hide_related=" + this.config.hide_related
+												+ "&show_comments=" + this.config.show_coments
+												+ "&show_user=" + this.config.show_user
+												+ "&show_reposts=" + this.config.show_reposts
+												+ "&show_teaser=" + this.config.show_teaser
+												+ "&visual=" + this.config.visual;
+
+			} else if (this.config.source == "Bandcamp") {		// Bandcamp iframe
+				iframe.style.width = "700px";					// max 700px for Bandcamp
+				iframe.style.height = "470px";					// max 470px for Bandcamp
+				iframe.src = this.config.b_url	+ "/size=" + this.config.size
+												+ "/bgcol=" + this.config.background_color
+												+ "/linkcol=" + this.config.link_color
+												+ "/tracklist=" + this.config.tracklist
+												+ "/artwork=" + this.config.artwork
+												+ "/minimal=" + this.config.minimal
+												+ "/transparent=" + this.config.transparent;
+
+			} else if (this.config.source == "Audiomack") {		// Audiomack iframe
+				iframe.src = this.config.a_url	+ "?background=" + this.config.background
+												+ "&color=" + this.config.color;
+			}
+		}
+
+		return iframe;
+	}
 });
