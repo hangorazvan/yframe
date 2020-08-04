@@ -7,16 +7,16 @@
 Module.register("yframe", {
 
     defaults: {
-              mode: "", // Web, Youtube, Vimeo or Soundcloud
+              mode: "Web", // Web, Youtube, Vimeo or Soundcloud
 
               wurl: "",
               width: "1024px",    // in px not %
               height: "600px",    // in px not %
-              cssClass: "",
+              cssClass: "video",
               scrolling: "no",
               allowfullscreen: "yes",
               frameborder: "0",   // style width color
-              name: "",
+              name: "iframe",
 
               // Youtube
               yurl: "",
@@ -72,7 +72,7 @@ Module.register("yframe", {
                                           + "&rel=" + this.config.related;
 
         } else if (this.config.mode == "Vimeo") {
-            iframe.allow = this.config.vallow;
+          iframe.allow = this.config.vallow;
             iframe.src = this.config.vurl + "?portrait=" + this.config.portrait           // Vimeo iframe
                                           + "&autoplay=" + this.config.play
                                           + "&controls=" + this.config.control
