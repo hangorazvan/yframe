@@ -9,44 +9,46 @@ Module.register("yframe", {
     defaults: {
               mode: "", // Web, Youtube, Vimeo or Soundcloud
 
-              wurl: "",
+              w_url: "",
               width: "1024px",    // in px not %
               height: "576px",    // in px not %
               cssClass: "video",
               scrolling: "no",
               allowfullscreen: "yes",
               frameborder: "0",   // style width color
-              name: "",
+              name: "iframe",
 
               // Youtube
-              yurl: "",
-              yallow: "autoplay; encrypted-media; picture-in-picture",
-              play: 1,
+              y_url: "",
+              y_allow: "autoplay; encrypted-media; picture-in-picture",
+              y_autoplay: 1,
               mute: 1,
-              controls: 0,
-              loop: 1,
+              y_controls: 0,
+              y_loop: 1,
               related: 0,
 
               // Vimeo
-              vurl: "",
-              vallow: "autoplay; fullscreen",
+              v_url: "",
+              v_allow: "autoplay; fullscreen",
               author: 0,
-              autoplay: 1,
-              control: 0,
+              v_autoplay: 1,
+              v_controls: 0,
               muted: 1,
               portrait: 0,
               title: 0,
-              loops: 1,
+              v_loop: 1,
 
               // Soundcloud
-              surl: "",
+              s_url: "",
               color: "%23ff5500",
-              auto_play: true,
+              s_allow: "autoplay",
+              s_autoplay: true,
               hide_related: true,
               show_comments: false,
               show_user: true,
               show_reposts: false,
               show_teaser: false,
+              visual: false
     },
 
     start: function() {
@@ -55,8 +57,8 @@ Module.register("yframe", {
   
     getDom: function() {
         var iframe = document.createElement("iframe");
+        iframe.frameborder = 0;
         iframe.style.border = this.config.frameborder;  // style width color
-        iframe.frameborder = this.config.frameborder;
         iframe.name = this.config.name;
         iframe.className = this.config.cssClass;
         iframe.style.width = this.config.width;         // in px not %
@@ -64,34 +66,36 @@ Module.register("yframe", {
         iframe.scrolling = this.config.scrolling;
         iframe.allowfullscreen = this.config.allowfullscreen;
 
-        if (this.config.mode == "Web") { iframe.src = this.config.wurl                   // web iframe
+        if (this.config.mode == "Web") { iframe.src = this.config.w_url                   // web iframe
 
         } else if (this.config.mode == "Youtube") {
-            iframe.allow = this.config.yallow;
-            iframe.src = this.config.yurl + "?autoplay=" + this.config.autoplay           // Youtube iframe
+            iframe.allow = this.config.y_allow;
+            iframe.src = this.config.y_url  + "?autoplay=" + this.config.y_autoplay           // Youtube iframe
                                           + "&mute=" + this.config.mute
-                                          + "&controls=" + this.config.controls
-                                          + "&loop=" + this.config.loop
+                                          + "&controls=" + this.config.y_controls
+                                          + "&loop=" + this.config.y_loop
                                           + "&rel=" + this.config.related;
 
         } else if (this.config.mode == "Vimeo") {
-          iframe.allow = this.config.vallow;
-            iframe.src = this.config.vurl + "?byline=" + this.config.author           // Vimeo iframe
-                                          + "&autoplay=" + this.config.play
-                                          + "&controls=" + this.config.control
+          iframe.allow = this.config.v_allow;
+            iframe.src = this.config.v_url  + "?byline=" + this.config.author           // Vimeo iframe
+                                          + "&autoplay=" + this.config.v_autoplay
+                                          + "&controls=" + this.config.v_controls
                                           + "&muted=" + this.config.muted
                                           + "&portrait=" + this.config.portrait
                                           + "&title=" + this.config.title
-                                          + "&loop=" + this.config.loops;
+                                          + "&loop=" + this.config.v_loop;
 
         } else if (this.config.mode == "Soundcloud") {
-            iframe.src = this.config.surl + "&color=" + this.config.color                 // Soundcloud iframe
-                                          + "&auto_play=" + this.config.auto_play
+          iframe.allow = this.config.s_allow;
+            iframe.src = this.config.s_url  + "&color=" + this.config.color                 // Soundcloud iframe
+                                          + "&auto_play=" + this.config.s_autoplay
                                           + "&hide_related=" + this.config.hide_related
                                           + "&show_comments=" + this.config.show_coments
                                           + "&show_user=" + this.config.show_user
                                           + "&show_reposts=" + this.config.show_reposts
-                                          + "&show_teaser=" + this.config.show_teaser;
+                                          + "&show_teaser=" + this.config.show_teaser
+                                          + "&visual=" + this.config.visual;
         }
 
         return iframe;
