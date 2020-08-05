@@ -6,10 +6,10 @@ HTML5 Video, Audio, Youtube, Vimeo, Soundcloud, Bandcamp, Audiomack & Web iframe
 		module: "yframe",
 		position: "middle_center",
 		config: {
-			mode: "iframe",					// iframe (choose source below), video or audio
+			mode: "iframe",				// iframe (choose source below), video or audio
 
 		// HTML5 Video or Audio mode example
-		//	url: "modules/yframe/landscape.mp4",		// local path/folder/video.mp4, audio.mp3 or embeded media
+		//	url: "modules/yframe/landscape.mp4",	// local path/folder/video.mp4, audio.mp3 or embeded media
 
 		// Web source iframe mode example (plus media choice)
 		//	url: "https://cristea13.ro",				// media: "website"
