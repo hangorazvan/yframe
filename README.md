@@ -1,6 +1,6 @@
 # yframe
 
-HTML5 Video, Youtube, Vimeo, Soundcloud, Bandcamp, Audiomack, Dailymotion, DTube, Metacafe, Ted, lbry.tv & Web iframe module for MagicMirror2
+HTML5 Video, Youtube, Vimeo, Soundcloud, Bandcamp (your own plailists), Audiomack, Dailymotion, DTube, Metacafe, Ted, lbry.tv & Web iframe module for MagicMirror2
 
 	{
 		module: "yframe",
