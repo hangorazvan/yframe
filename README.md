@@ -31,27 +31,27 @@ HTML5 Video, Audio, Youtube, Vimeo, Soundcloud, Bandcamp, Audiomack & Web iframe
 		//	url: "https://audiomack.com/embed/playlist/razvanh/love-of-future",
 
 		// global settings
-				width: "1024px",		// for iframe just px not %
-				height: "576px",		// for iframe just px not %
-				cssClass: "video",		// custom className
-				loop: true,			// loop video
-				autoplay: true,			// autoplay video
-				contols: false,			// if autoplay and loop is false you need controls
-				muted: true,			// muted video
+				width: "1024px",	// for iframe just px not %
+				height: "576px",	// for iframe just px not %
+				cssClass: "video",	// custom className
+				loop: true,		// loop video
+				autoplay: true,		// autoplay video
+				contols: false,		// if autoplay and loop is false you need controls
+				muted: true,		// muted video
 
 		// HTML5 Video or Audio mode
-				type: "video/mp4",		// video/mp4, video/webm, video/ogg or audio/mpeg, audio/ogg, audio/wav
-				poster: "",			// custom poster image
+				type: "video/mp4",	// video/mp4, video/webm, video/ogg or audio/mpeg, audio/ogg, audio/wav
+				poster: "",		// custom poster image
 
 		// iframe mode
-			source: "Web",				// Web (choose media below), Youtube, Vimeo, Soundcloud, Bandcap, Audiomack
+			source: "Web",			// Web (choose media below), Youtube, Vimeo, Soundcloud, Bandcap, Audiomack
 
 		// Web source - any website without X-Frame-Options deny and sameorigin activated or media from DTube, Metacafe, Ted, Lbry.tv
-			media: "media",				// "website" if url is website link or "streaming" if url is multimedia link
+			media: "media",			// "website" if url is website link or "streaming" if url is multimedia link
 				scrolling: "no",
 				allowfullscreen: "yes",
 				allow: "autoplay; fullscreen; encrypted-media; picture-in-picture",
-				frameborder: "0",		// style width color
+				frameborder: "0",	// style width color
 				name: "iframe",
 
 		// Youtube source
