@@ -29,7 +29,7 @@ HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-playe
 			loop: 1,				// loop video
 			autoplay: 1,				// for video mode autoplay you need controls: 0 and muted: 1
 			controls: 0,				// for video mode without controls you need autoplay: 1
-			muted: 1,				// for video mode not muted you need autoplay: 0
+			muted: 1,				// for video mode not muted you need autoplay: 0 and controls: 1
 
 		// HTML5 Video mode
 			poster: "",				// custom poster image
