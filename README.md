@@ -6,11 +6,10 @@ HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-playe
 		module: "yframe",
 		position: "middle_center",
 		config: {
-			mode: "iframe",				// iframe or video
-			url: "...",
+			url: "https://www.youtube.com/embed/eKFTSSKCzWA",
 
 			// HTML5 Video mode example url: "path/folder/file.mp4"
-			// local mp4, webm or ogg media
+			// http or local mp4, webm and ogg media
 
 			// Youtube & Web iframe mode example url: "https://cristea13.ro"
 			// "https://www.dailymotion.com/embed/video/x7urdc7"
@@ -24,7 +23,7 @@ HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-playe
 			// Badcamp iframe mode example url: "https://bandcamp.com/EmbeddedPlayer/album=3096747879"
 			// Audiomack iframe mode example url: "https://audiomack.com/embed/playlist/razvanh/love-of-future"
 
-			width: "1080",				// just in px not %
+			width: "1080",				// just in px not % for iframe
 			aspect: 9/16,				// height is set to be 9:16 ratio (h/w)
 			cssClass: "video",			// custom className
 			loop: 1,				// loop video
