@@ -84,15 +84,14 @@ Module.register("yframe", {
 
 	getDom: function() {
 
-		if (this.config.url.includes(".mp4") ||
+		if (this.config.url.includes(".mp4")  ||
 			this.config.url.includes(".webm") ||
-			this.config.url.includes(".ogg") ||
-			this.config.url.includes(".mp3") ||
+			this.config.url.includes(".ogg")  ||
+			this.config.url.includes(".mp3")  ||
 			this.config.url.includes(".wav")) {
-				var mode = "video";
 
 		// video mode
-			var media = document.createElement(mode);
+			var media = document.createElement("video");
 			media.className = this.config.cssClass;
 			media.style.width = this.config.width + "px";
 			media.style.height = parseInt(this.config.width * this.config.aspect) + "px";
@@ -108,10 +107,10 @@ Module.register("yframe", {
 			media.src = this.config.url;
 			return media;
 
-		} else	var mode = "iframe";
+		} else
 
 		// iframe mode
-			var media = document.createElement(mode);
+			var media = document.createElement("iframe");
 			media.className = this.config.cssClass;
 			media.style.width = this.config.width + "px";
 			media.style.height = parseInt(this.config.width * this.config.aspect) + "px";
