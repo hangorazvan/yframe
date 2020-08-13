@@ -88,7 +88,8 @@ Module.register("yframe", {
 			this.config.url.includes(".webm") ||
 			this.config.url.includes(".ogg")  ||
 			this.config.url.includes(".mp3")  ||
-			this.config.url.includes(".wav")) {
+			this.config.url.includes(".wav"))
+		{
 
 		// video mode
 			var media = document.createElement("video");
@@ -152,7 +153,7 @@ Module.register("yframe", {
 										+ "&visual=" + this.config.visual;
 	// Bandcamp iframe
 		} else if (this.config.url.includes("bandcamp")) {
-			media.style.width = "700px";					// max 700px for Bandcamp
+			media.style.width  = "700px";					// max 700px for Bandcamp
 			media.style.height = "470px";					// max 470px for Bandcamp
 			media.src = this.config.url	+ "/size=" + this.config.size
 										+ "/bgcol=" + this.config.background_color
