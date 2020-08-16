@@ -12,6 +12,7 @@ HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-playe
 			// http or local mp4, webm and ogg media
 
 			// Youtube & Web iframe mode example url: "https://cristea13.ro"
+			// "https://cristea13.ro/css/landscape_demo.mp4"
 			// "https://www.dailymotion.com/embed/video/x7urdc7"
 			// "https://www.youtube.com/embed/eKFTSSKCzWA"
 			// Could be any website without X-Frame-Options deny and sameorigin activated
