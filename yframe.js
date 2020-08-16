@@ -14,6 +14,7 @@ Module.register("yframe", {
 
 		// Youtube & Web iframe mode example url: "https://cristea13.ro"
 		// "https://cristea13.ro/assets/video/landscape_demo.mp4"
+		// for vertical video (from mobile phone) set aspect 16/9 instead 9/16
 		// "https://www.dailymotion.com/embed/video/x7urdc7"
 		// "https://www.youtube.com/embed/eKFTSSKCzWA"
 		// Could be any website without X-Frame-Options deny and sameorigin activated
