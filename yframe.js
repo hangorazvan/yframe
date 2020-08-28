@@ -26,7 +26,7 @@ Module.register("yframe", {
 		// Badcamp iframe mode example url: "https://bandcamp.com/EmbeddedPlayer/album=3096747879"
 		// Audiomack iframe mode example url: "https://audiomack.com/embed/playlist/razvanh/love-of-future"
 
-		media: false,				// only for websites that do not need player options
+		media: true,				// false for websites that do not need player options
 		width: "1080",				// just in px not % for iframe
 		aspect: 9/16,				// height is set to be 9:16 ratio (h/w)
 		cssClass: "video",			// custom className
