@@ -13,8 +13,7 @@ Module.register("yframe", {
 		// http or local mp4, webm and ogg media
 
 		// Youtube & Web iframe mode example url: "https://cristea13.ro"
-		// "https://cristea13.ro/assets/video/landscape_demo.mp4"
-		// for vertical video (from mobile phone) set aspect 16/9 instead 9/16
+		// "https://cristea13.ro/video/landscape_demo.mp4"
 		// "https://www.dailymotion.com/embed/video/x7urdc7"
 		// "https://www.youtube.com/embed/eKFTSSKCzWA"
 		// Could be any website without X-Frame-Options deny and sameorigin activated
@@ -27,8 +26,9 @@ Module.register("yframe", {
 		// Audiomack iframe mode example url: "https://audiomack.com/embed/playlist/razvanh/love-of-future"
 
 		media: true,				// false for websites that do not need player options
-		width: "1080",				// just in px not % for iframe
-		aspect: 9/16,				// height is set to be 9:16 ratio (h/w)
+		width: "1080",				// use without px unit for video or media
+		height: "607",				// ignored for video or media
+		aspect: 9/16,				// height is set to be 9:16 ratio (h/w) for video or media
 		cssClass: "video",			// custom className
 		loop: 1,					// loop video
 		autoplay: 1,				// for video mode autoplay you need controls: 0 and muted: 1
@@ -42,8 +42,10 @@ Module.register("yframe", {
 	// Youtube & Web iframe
 		start: "04",				// seconds to start
 		allow: "autoplay; fullscreen; encrypted-media; picture-in-picture",
-		frameborder: "0",			// css style, width, color
+		border: "0",				// css style, width, color
+		style: "",
 		overflow: "hidden",
+		origin: "strict-origin",
 		related: 0,
 
 	// Vimeo iframe
@@ -97,9 +99,12 @@ Module.register("yframe", {
 		// video mode
 			var media = document.createElement("video");
 			media.className = this.config.cssClass;
+			media.name = this.config.cssClass;
+			media.title = this.config.cssClass;
+			media.style = this.config.style;
 			media.style.width = this.config.width + "px";
 			media.style.height = parseInt(this.config.width * this.config.aspect) + "px";
-			media.style.border = this.config.frameborder;
+			media.style.border = this.config.border;
 			media.style.overflow = this.config.overflow;
 			media.allow = this.config.allow;
 			media.autoplay = this.config.autoplay;
@@ -116,9 +121,12 @@ Module.register("yframe", {
 		// iframe mode
 			var media = document.createElement("iframe");
 			media.className = this.config.cssClass;
+			media.name = this.config.cssClass;
+			media.title = this.config.cssClass;
+			media.style = this.config.style;
 			media.style.width = this.config.width + "px";
 			media.style.height = parseInt(this.config.width * this.config.aspect) + "px";
-			media.style.border = this.config.frameborder;
+			media.style.border = this.config.border;
 			media.style.overflow = this.config.overflow;
 			media.allow = this.config.allow;
 			media.autoplay = this.config.autoplay;
@@ -127,6 +135,7 @@ Module.register("yframe", {
 			media.loop = this.config.loop;
 			media.poster = this.config.poster;
 			media.preload = this.config.preload;
+			media.referrerpolicy = this.config.origin;
 
 	// Vimeo iframe
 		if (this.config.url.includes("vimeo")) {
@@ -172,6 +181,8 @@ Module.register("yframe", {
 	// Youtube & Web iframe
 		} else {
 			if (!this.config.media) {
+				media.style.width = this.config.width;
+				media.style.height = this.config.height;
 				media.src = this.config.url;
 			} else
 			media.src = this.config.url + "?autoplay=" + this.config.autoplay
