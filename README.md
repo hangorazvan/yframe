@@ -29,13 +29,13 @@ HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-playe
 		height: "607",				// ignored for video or media
 		aspect: 9/16,				// height is set to be 9:16 ratio (h/w) for video or media
 		cssClass: "video",			// custom className
-		loop: 1,					// loop video
+		loop: 1,				// loop video
 		autoplay: 1,				// for video mode autoplay you need controls: 0 and muted: 1
 		controls: 0,				// for video mode without controls you need autoplay: 1
-		muted: 1,					// for video mode not muted you need autoplay: 0 and controls: 1
+		muted: 1,				// for video mode not muted you need autoplay: 0 and controls: 1
 
 	// HTML5 Video mode
-		poster: "",					// custom poster image
+		poster: "",				// custom poster image
 		preload: "auto",
 
 	// Youtube & Web iframe
@@ -70,8 +70,8 @@ HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-playe
 
 	// Bandcamp iframe
 		size: "large",				// "large" only if minimal is false
-		background_color: "ffffff",	// "RRGGBB" custom colors
-		link_color: "333333",		// "RRGGBB" custom colors
+		background_color: "ffffff",		// "RRGGBB" custom colors
+		link_color: "333333",			// "RRGGBB" custom colors
 		tracklist: true,
 		artwork: "small",			// small or big
 		transparent: true,
