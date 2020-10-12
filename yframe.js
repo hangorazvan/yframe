@@ -1,9 +1,11 @@
-/*  Magic Mirror 2
- * Module: Yframe
- * by Razvan Cristea 
+/* Magic Mirror
+ *
+ * MIT Licensed.
+ *
+ * Redesigned by Răzvan Cristea
+ * for iPad 3 & HD display
  * https://github.com/hangorazvan
  */
-
 Module.register("yframe", {
 
 	defaults: {
