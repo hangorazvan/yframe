@@ -1,6 +1,7 @@
 # yframe
 
 HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-player code to be displayed publicly), Bandcamp, Audiomack, Dailymotion, DTube, Metacafe, Ted, lbry.tv & Web iframe module for MagicMirror2
+<br>This module is no longer maintained, will not have any improvements or bug fixes.
 
 	{
 		module: "yframe",
